@@ -1,0 +1,44 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.header {
+  background-color: #1976d2;
+  color: white;
+  padding: 16px 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 1;
+}
+.sidenav-container {
+  min-height: 100vh;
+}
+
+.sidenav-container {
+  min-height: 100vh;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

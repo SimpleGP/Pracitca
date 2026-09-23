@@ -1,0 +1,48 @@
+<section class="page">
+  <header>
+    <h1>Peruvian Universities</h1>
+  </header>
+
+  @if (store.loading()) {
+    <div class="loading">
+      <p>Loading universities...</p>
+    </div>
+  }
+
+  @if (store.loadingError()) {
+    <div class="error">
+      <p>{{ store.loadingError() }}</p>
+    </div>
+  }
+
+  @if (!store.loading() && !store.loadingError()) {
+    <div class="cards-grid">
+      @for (university of store.universities(); track university.name) {
+        <div class="university-card">
+
+          <div class="card-header">
+            <img
+              [src]="'https://logo.clearbit.com/' + university.domains[0]"
+              [alt]="'Logo of ' + university.name"
+              (error)="onImageError($event)">
+            <h2>{{ university.name }}</h2>
+          </div>
+
+          <div class="card-content">
+            <p><strong>Domain:</strong> {{ university.domains[0] }}</p>
+          </div>
+
+          <div class="card-actions">
+            <a [href]="university.web_pages[0]" target="_blank" rel="noopener noreferrer">
+              Go To Website
+            </a>
+            <button type="button" (click)="shareUniversity(university)">
+              Share University
+            </button>
+          </div>
+
+        </div>
+      }
+    </div>
+  }
+</section>
